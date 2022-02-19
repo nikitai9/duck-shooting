@@ -54,22 +54,18 @@ namespace duck_shooting
         }
 
         Point mouse_location = new Point();
-     
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Green, 3);
-            e.Graphics.Clear(Color.AliceBlue);
+            Pen pens = new Pen(Color.Green, 3);
             e.Graphics.Flush();
             GC.Collect();
-            e.Graphics.DrawEllipse(pen,
-             new Rectangle(
-                     new Point(Location.X, Location.Y),
-                     new Size(30, 30)
-                ));
-            e.Graphics.DrawLine(pen, Location.X + 15, Location.Y - 10, Location.X + 15, Location.Y + 40);
-            e.Graphics.DrawLine(pen, Location.X - 10, Location.Y + 15, Location.X + 40, Location.Y + 15);
-
-        }
+            e.Graphics.DrawEllipse(pens,
+                mouse_location.X, mouse_location.Y, 30, 30);
+            e.Graphics.DrawLine(pen, mouse_location.X + 15, mouse_location.Y - 10, mouse_location.X + 15, mouse_location.Y + 40);
+            e.Graphics.DrawLine(pen, mouse_location.X - 10, mouse_location.Y + 15, mouse_location.X + 40, mouse_location.Y + 15);
+        } 
 
 
         #endregion
